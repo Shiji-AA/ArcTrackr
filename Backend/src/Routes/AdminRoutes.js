@@ -3,7 +3,7 @@ import { register } from "../Controller/AdminController.js"
 const router= express.Router()
 
 
-router.post("/register",register)
+router.post("/adminregister",register)
 
 
 export default router
