@@ -162,9 +162,7 @@ function AdminRegister() {
                   >
                     Login
                   </Link>
-                </p>
-
-         
+                </p>         
 
               </div>
             </div>
