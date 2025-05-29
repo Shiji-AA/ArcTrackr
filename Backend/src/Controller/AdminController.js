@@ -89,10 +89,10 @@ const adminLogin = async (req, res) => {
         return res.status(500).json({ message: "An error occurred. Please try again later." });  
       }}
 
-          const getAllSiteVisit = async (req, res) => {
+        const getAllSiteVisit = async (req, res) => {
         try {
           const sitevisitDetails = await SiteVisit.find().exec();
-          console.log(sitevisitDetails,"sitevisitDetails")
+          //console.log(sitevisitDetails,"sitevisitDetails")
           if (sitevisitDetails) {      
            res.status(200).json({
               sitevisitDetails,
@@ -108,6 +108,70 @@ const adminLogin = async (req, res) => {
         }
       };
 
+            //to get Sitevisit details as per id
+const getSiteVisitById =async (req,res)=>{
+  const sitevisitId=req.params.id;
+  try{  
+    const sitevisitDetails = await SiteVisit.findById(sitevisitId).exec();
+    if (sitevisitDetails) {
+      res.status(200).json({
+        sitevisitDetails,
+        message: "Sitevisit found successfully",
+      });
+    } else {
+      return res.status(404).json({
+        message: "Sitevisit not found",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: "An error occurred. Please try again later." });    
+  }
+  }
+
+  const editSiteVisit = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { department, batch, siteName, location, visitDate, status } = req.body;
+
+    const sitevisit = await SiteVisit.findById(id);
+
+    if (!sitevisit) {
+      return res.status(404).json({ error: "Invalid sitevisit ID" });
+    }
+
+    // Update fields
+    sitevisit.department = department || sitevisit.department;
+    sitevisit.batch = batch || sitevisit.batch;
+    sitevisit.siteName = siteName || sitevisit.siteName;
+    sitevisit.location = location || sitevisit.location;
+    sitevisit.visitDate = visitDate || sitevisit.visitDate;
+    sitevisit.status = status || sitevisit.status;
+
+    await sitevisit.save();
+
+    return res.status(200).json({ message: "Sitevisit updated successfully" });
+  } catch (error) {
+    console.error("Error updating sitevisit:", error);
+    return res.status(500).json({ message: "An error occurred. Please try again later." });
+  }
+};
 
 
-export {register,adminLogin,addSiteVisit,getAllSiteVisit}
+  const deleteSiteVisit = async(req,res)=>{
+    try{
+      const {id}=req.params;
+      const sitevisit = await SiteVisit.findById(id);
+      if(!sitevisit){
+        return res.status(400).json({error:"Sitevisit not found"})
+      }
+   await SiteVisit.findByIdAndDelete(id)
+   res.status(200).json({message:"sitevisit deleted successfully"})
+      }  
+    catch(error){    
+      return res.status(500).json({ message: "An error occurred. Please try again later." });  
+    }  
+  }
+
+
+
+export {register,adminLogin,addSiteVisit,getAllSiteVisit,getSiteVisitById,editSiteVisit,deleteSiteVisit}
