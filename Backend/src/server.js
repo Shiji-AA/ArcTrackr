@@ -9,14 +9,14 @@ connectDB();
 
 const corsOptions = {
   origin: [
-    "http://localhost:4000",
-    "http://localhost:3000",
-    "https://arc-trackr.vercel.app",
-    "https://arctrackr.onrender.com",
+    'http://localhost:4000',
+    'http://localhost:3000',
+    'https://arc-trackr.vercel.app',
+    'https://arctrackr.onrender.com'
   ],
-  methods: "GET,PUT,POST,PATCH,DELETE",
+  methods: "GET,POST,PUT,DELETE,PATCH",
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // Important for cookies/auth headers
+  credentials: true
 };
 
 const app = express();
