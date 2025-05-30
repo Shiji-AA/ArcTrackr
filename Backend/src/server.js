@@ -10,7 +10,7 @@ import router from "./Routes/AdminRoutes.js"
 
 
  app.use(cors({
-  origin: 'http://localhost:4000',
+  origin: ['http://localhost:4000','https://arc-trackr.vercel.app'],
   credentials: true,
 }));
 const port= process.env.PORT || 3000
