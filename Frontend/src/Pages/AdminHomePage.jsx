@@ -7,10 +7,8 @@ function AdminHomePage() {
     return (
         <div>
             <AdminNavbar/>
-            <AdminDashboard/>
-            <AdminFooter/>
-
-            
+            <AdminDashboard/>            
+            <AdminFooter/>            
         </div>
     )
 }

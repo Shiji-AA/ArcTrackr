@@ -17,13 +17,13 @@ function EditSiteVisit() {
   useEffect(() => {
     axiosInstanceAdmin.get(`/getallsitevisit1/${id}`)
       .then((response) => {
-        if (response.data && response.data.sitevisitDetails ) {
-          const sv = response.data.sitevisitDetails ;
+        if (response.data && response.data.sitevisitDetails) {
+          const sv = response.data.sitevisitDetails;
           setDepartment(sv.department);
           setBatch(sv.batch);
           setSiteName(sv.siteName);
           setLocation(sv.location);
-          setVisitDate(sv.visitDate.slice(0, 10)); // YYYY-MM-DD for date input
+          setVisitDate(sv.visitDate.slice(0, 10));
           setStatus(sv.status);
         }
       })
@@ -37,8 +37,6 @@ function EditSiteVisit() {
     axiosInstanceAdmin.put(`/editsitevisit/${id}`, {
       department, batch, siteName, location, visitDate, status
     })
-
-    
       .then((response) => {
         if (response) {
           navigate('/sitevisits');
@@ -58,8 +56,10 @@ function EditSiteVisit() {
         <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-bold px-6 py-4 bg-teal-600 text-white rounded-t-lg">Edit Site Visit</h2>
           <form onSubmit={handleEditSubmit} className="p-6 grid grid-cols-1 gap-4">
-            <label for="department">Department</label>
+            
+            <label htmlFor="department" className="font-medium text-gray-500">Department</label>
             <input
+              id="department"
               type="text"
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
@@ -67,7 +67,10 @@ function EditSiteVisit() {
               className="p-2 border rounded-md"
               required
             />
+
+            <label htmlFor="batch"className="font-medium text-gray-500">Batch</label>
             <input
+              id="batch"
               type="text"
               value={batch}
               onChange={(e) => setBatch(e.target.value)}
@@ -75,7 +78,10 @@ function EditSiteVisit() {
               className="p-2 border rounded-md"
               required
             />
+
+            <label htmlFor="siteName" className="font-medium text-gray-500">Site Name</label>
             <input
+              id="siteName"
               type="text"
               value={siteName}
               onChange={(e) => setSiteName(e.target.value)}
@@ -83,7 +89,10 @@ function EditSiteVisit() {
               className="p-2 border rounded-md"
               required
             />
+
+            <label htmlFor="location" className="font-medium text-gray-500">Location</label>
             <input
+              id="location"
               type="text"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -91,14 +100,20 @@ function EditSiteVisit() {
               className="p-2 border rounded-md"
               required
             />
+
+            <label htmlFor="visitDate" className="font-medium text-gray-500">Visit Date</label>
             <input
+              id="visitDate"
               type="date"
               value={visitDate}
               onChange={(e) => setVisitDate(e.target.value)}
               className="p-2 border rounded-md"
               required
             />
+
+            <label htmlFor="status" className="font-medium text-gray-500">Status</label>
             <select
+              id="status"
               value={status}
               onChange={(e) => setStatus(e.target.value)}
               className="p-2 border rounded-md"
@@ -109,6 +124,7 @@ function EditSiteVisit() {
               <option value="Completed">Completed</option>
               <option value="Cancelled">Cancelled</option>
             </select>
+
             <div className="flex justify-end">
               <button type="submit" className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700">
                 Save Changes
