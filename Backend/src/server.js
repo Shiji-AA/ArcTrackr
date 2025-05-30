@@ -1,22 +1,34 @@
-import express from "express"
-const app=express()
-import cors from 'cors';
-import dotenv from 'dotenv'
-import router from "./Routes/AdminRoutes.js"
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import router from "./Routes/AdminRoutes.js";
+import { connectDB } from "./config/db.js";
 
- dotenv.config()
- import { connectDB } from "./config/db.js"
- connectDB()
+dotenv.config();
+connectDB();
 
+const corsOptions = {
+  origin: [
+    "http://localhost:4000",
+    "http://localhost:3000",
+    "https://arc-trackr.vercel.app",
+    "https://arctrackr.onrender.com",
+  ],
+  methods: "GET,PUT,POST,PATCH,DELETE",
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true, // Important for cookies/auth headers
+};
 
- app.use(cors({
-  origin: ['http://localhost:4000','https://arc-trackr.vercel.app'],
-  credentials: true,
-}));
-const port= process.env.PORT || 3000
+const app = express();
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/admin",router)
 
- app.get("/",(req,res)=>res.send("Server is Ready"))
- app.listen(port,()=>console.log("server started"))
+app.use("/api/admin", router);
+
+app.get("/", (req, res) => res.send("Server is Ready"));
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server started on port ${port}`));
