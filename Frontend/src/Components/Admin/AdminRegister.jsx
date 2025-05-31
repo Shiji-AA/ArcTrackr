@@ -55,7 +55,7 @@ function AdminRegister() {
         .then((response) => {
           console.log(response.data);
           toast.success(response.data.message);
-          navigate("/admin");
+          navigate("/");
         })
         .catch((error) => {
           console.log(error);
