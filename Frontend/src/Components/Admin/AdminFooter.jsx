@@ -9,7 +9,7 @@ import {
 import {
   faPhone,
   faMapMarkerAlt,
-  faEnvelope,
+  faEnvelope, 
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";

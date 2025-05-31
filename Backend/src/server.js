@@ -14,7 +14,7 @@ const corsOptions = {
     'https://arc-trackr.vercel.app',
     'https://arctrackr.onrender.com'
   ],
-  methods: "GET,POST,PUT,DELETE,PATCH",
+  methods: "GET,POST,PUT,DELETE,PATCH",     
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 };

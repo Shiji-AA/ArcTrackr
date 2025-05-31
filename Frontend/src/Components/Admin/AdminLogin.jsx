@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import {  useDispatch,useSelector} from 'react-redux'
 import { setAdminInfo } from '../../../Redux/Slices/AdminSlice';
 import { axiosInstanceAdmin } from '../../api/axiosInstance';
+import  Link  from 'react-router-dom';
 
 
 export default function Example() {
@@ -108,6 +109,16 @@ const handleSubmit=(e)=> {
               </button>
             </div>
           </form>
+          <br/>
+           <p className="text-center text-sm font-semibold text-gray-900 dark:text-gray-400">
+                Don't have an account?{" "}
+                <Link
+                  to="/adminregister"
+                  className="font-medium text-customColor hover:underline dark:text-customColor text-teal-900"
+                >
+                  Register Here
+                </Link>
+              </p>
 
         </div>
       </div>

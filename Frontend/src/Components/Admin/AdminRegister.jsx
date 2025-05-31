@@ -157,7 +157,7 @@ function AdminRegister() {
                 <p className="text-center text-sm font-semibold text-gray-900 dark:text-gray-400">
                   Already have an account?{" "}
                   <Link
-                    to="/admin"
+                    to="/"
                     className="font-medium text-customColor hover:underline dark:text-customColor"
                   >
                     Login
