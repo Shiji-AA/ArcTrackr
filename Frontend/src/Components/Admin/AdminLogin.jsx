@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import {  useDispatch,useSelector} from 'react-redux'
 import { setAdminInfo } from '../../../Redux/Slices/AdminSlice';
 import { axiosInstanceAdmin } from '../../api/axiosInstance';
-import  Link  from 'react-router-dom';
+import  {Link}  from 'react-router-dom';
 
 
 export default function Example() {
