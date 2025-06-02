@@ -72,7 +72,7 @@ function AdminRegister() {
         
         <div className="flex min-h-full flex-1 flex-col px-6 py-12 lg:px-8 bg-gray-500 "style={{ backgroundImage: `url(${tutor6})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '120vh', width: '100vw' }}>
           <div className="flex flex-col items-center px-6 py-4 md:h-screen lg:py-0">          
-           <div className="w-full bg-white border border-customColor lg:mt-0 sm:max-w-lg xl:p-0">
+           <div className="w-full bg-white border border-indigo-600 lg:mt-0 sm:max-w-lg xl:p-0">
               <div className="p-6 space-y-4 md:space-y-2 sm:p-8">
               <div className="flex justify-center items-center">
                 <img
@@ -147,7 +147,7 @@ function AdminRegister() {
 
                   <button
                     type="submit"
-                    className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium bg-indigo-600 text-gray-900 bg-customColor hover:bg-customColor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customColor"
+                    className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium bg-indigo-600 text-gray-900 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
                   >
                     Signup
                   </button>
@@ -158,7 +158,7 @@ function AdminRegister() {
                   Already have an account?{" "}
                   <Link
                     to="/"
-                    className="font-medium text-customColor hover:underline dark:text-customColor"
+                    className="font-medium text-indigo-600 hover:underline dark:text-indigo-600"
                   >
                     Login
                   </Link>
